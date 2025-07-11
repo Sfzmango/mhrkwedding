@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MH & RK Wedding Website
+
+A beautiful wedding website built with Next.js, featuring Art Nouveau, Art Deco, California redwoods, and dark academia vintage aesthetics.
+
+## Features
+
+- Responsive design that works on all devices
+- Beautiful animations and transitions
+- RSVP form
+- Couple's story section
+- Local activities and recommendations
+- Modern and elegant UI with vintage aesthetics
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Customization
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Images
+Place your images in the `public/images` directory:
+- `hero-bg.jpg` - Main hero section background (recommended size: 1920x1080)
+- Add additional images for the couple's story and local activities sections
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Content
+Update the following sections in `src/app/page.tsx`:
+- Wedding date and time
+- Venue details
+- Couple's stories
+- Local activities and recommendations
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Styling
+The website uses Tailwind CSS for styling. You can customize the theme in `tailwind.config.ts`:
+- Colors
+- Fonts
+- Spacing
+- Other design elements
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This website can be deployed for free using:
+- GitHub Pages
+- Netlify
+- Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Headless UI
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
