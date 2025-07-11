@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 function getRandomLeaf(index: number, width: number, height: number) {
-  const img = Math.random() > 0.5 ? '/images/leaves 1.png' : '/images/leaves 2.png';
+  const img = Math.random() > 0.5 ? './images/leaves 1.png' : './images/leaves 2.png';
   const angle = Math.random() * 360;
   // Start: random position covering the screen
   const x0 = Math.random() * width;
@@ -103,7 +103,7 @@ export default function Home() {
           {leaves.map((leaf, i) => (
             <img
               key={i}
-              src={leaf.img}
+              src={leaf.img.replace('/images/', './images/')}
               alt=""
               style={{
                 position: 'absolute',
@@ -125,7 +125,7 @@ export default function Home() {
       <main
         className="min-h-screen relative"
         style={{
-          backgroundImage: "url('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
+          backgroundImage: "url('./images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -136,7 +136,7 @@ export default function Home() {
           {/* Layer 1: Leaves Background (farthest back) */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/leaves background.png"
+              src="./images/leaves background.png"
               alt="Leaves background"
               className="w-full h-full object-fill opacity-80 transition-transform duration-300 ease-out"
               // style={getSpotlightTransform(0, 1.3)}
@@ -148,7 +148,7 @@ export default function Home() {
             // Portrait: show v3 only
             <div className="absolute inset-0 z-15 flex items-center justify-center">
               <img
-                src="/images/circle background v3.png"
+                src="./images/circle background v3.png"
                 alt="Circle background v3"
                 className="h-full object-fill opacity-100 transition-transform duration-300 ease-out"
                 // style={getSpotlightTransform(15, 1.1)}
@@ -160,7 +160,7 @@ export default function Home() {
               {/* Layer 2: MnR v2 (second layer) */}
               <div className="absolute inset-0 z-20 flex items-center justify-center">
                 <img
-                  src="/images/MnR v2.png"
+                  src="./images/MnR v2.png"
                   alt="MnR logo"
                   className="w-3/4 h-auto ml-auto mt-10 mb-auto object-contain opacity-100 transition-transform duration-300 ease-out"
                   style={{
@@ -174,7 +174,7 @@ export default function Home() {
               {/* Layer 3: Circle Background v2 (third layer) */}
               <div className="absolute inset-0 z-15 flex items-center justify-center">
                 <img
-                  src="/images/circle background v2.png"
+                  src="./images/circle background v2.png"
                   alt="Circle background"
                   className="h-full object-fill ml-auto mt-10 mb-auto opacity-100 transition-transform duration-300 ease-out"
                   // style={getSpotlightTransform(15, 1.0)}
@@ -186,7 +186,7 @@ export default function Home() {
           {/* Layer 4: Border (closest to front) */}
           <div className="absolute inset-0 z-10 flex items-center justify-center">
             <img
-              src="/images/border.png"
+              src="./images/border.png"
               alt="Border decoration"
               className="w-full h-full pt-10 object-fill opacity-100 transition-transform duration-300 ease-out"
               // style={getSpotlightTransform(0, 1)}
