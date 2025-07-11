@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/mhrkwedding' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/mhrkwedding' : '',
 };
 
 export default nextConfig;
