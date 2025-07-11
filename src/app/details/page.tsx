@@ -6,7 +6,7 @@ export default function DetailsPage() {
       <Navigation />
       <main className="min-h-screen relative"
         style={{
-          backgroundImage: "url('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
+          backgroundImage: "url('/mhrkwedding/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
