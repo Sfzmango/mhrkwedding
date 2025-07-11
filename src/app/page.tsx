@@ -4,9 +4,10 @@ import Navigation from '@/components/Navigation'
 import Link from 'next/link'
 // import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { getAssetPath } from '@/utils/assetPath'
 
 function getRandomLeaf(index: number, width: number, height: number) {
-  const img = Math.random() > 0.5 ? '/mhrkwedding/images/leaves 1.png' : '/mhrkwedding/images/leaves 2.png';
+  const img = Math.random() > 0.5 ? getAssetPath('/images/leaves 1.png') : getAssetPath('/images/leaves 2.png');
   const angle = Math.random() * 360;
   // Start: random position covering the screen
   const x0 = Math.random() * width;
@@ -68,13 +69,14 @@ export default function Home() {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const arr = [];
-    for (let i = 0; i < 150; i++) {
+    const leafCount = isPortrait ? 30 : 150;
+    for (let i = 0; i < leafCount; i++) {
       arr.push(getRandomLeaf(i, width, height));
     }
     setLeaves(arr);
-    setTimeout(() => setAnimateLeaves(true), 300);
-    setTimeout(() => setLeaves([]), 2000);
-  }, []);
+    setTimeout(() => setAnimateLeaves(true), 100);
+    setTimeout(() => setLeaves([]), 4000);
+  }, [isPortrait]);
 
   // const getSpotlightTransform = (layerDepth: number, baseScale: number) => {
   //   const intensity = 0.3
@@ -114,7 +116,7 @@ export default function Home() {
                 transform: `rotate(${leaf.angle}deg)`,
                 opacity: animateLeaves ? 0 : 1,
                 transition: 'all 1.7s cubic-bezier(.77,0,.18,1)',
-                transitionDelay: `${Math.random() * 0.5}s`,
+                transitionDelay: `${Math.random() * 2}s`,
                 filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))',
               }}
             />
@@ -125,7 +127,7 @@ export default function Home() {
       <main
         className="min-h-screen relative"
         style={{
-          backgroundImage: "url('/mhrkwedding/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
+          backgroundImage: `url('${getAssetPath('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -136,7 +138,7 @@ export default function Home() {
           {/* Layer 1: Leaves Background (farthest back) */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/mhrkwedding/images/leaves background.png"
+              src={getAssetPath('/images/leaves background.png')}
               alt="Leaves background"
               className="w-full h-full object-fill opacity-80 transition-transform duration-300 ease-out"
               // style={getSpotlightTransform(0, 1.3)}
@@ -148,7 +150,7 @@ export default function Home() {
             // Portrait: show v3 only
             <div className="absolute inset-0 z-15 flex items-center justify-center">
               <img
-                src="/mhrkwedding/images/circle background v3.png"
+                src={getAssetPath('/images/circle background v3.png')}
                 alt="Circle background v3"
                 className="h-full object-fill opacity-100 transition-transform duration-300 ease-out"
                 // style={getSpotlightTransform(15, 1.1)}
@@ -160,7 +162,7 @@ export default function Home() {
               {/* Layer 2: MnR v2 (second layer) */}
               <div className="absolute inset-0 z-20 flex items-center justify-center">
                 <img
-                  src="/mhrkwedding/images/MnR v2.png"
+                  src={getAssetPath('/images/MnR v2.png')}
                   alt="MnR logo"
                   className="w-3/4 h-auto ml-auto mt-10 mb-auto object-contain opacity-100 transition-transform duration-300 ease-out"
                   style={{
@@ -174,7 +176,7 @@ export default function Home() {
               {/* Layer 3: Circle Background v2 (third layer) */}
               <div className="absolute inset-0 z-15 flex items-center justify-center">
                 <img
-                  src="/mhrkwedding/images/circle background v2.png"
+                  src={getAssetPath('/images/circle background v2.png')}
                   alt="Circle background"
                   className="h-full object-fill ml-auto mt-10 mb-auto opacity-100 transition-transform duration-300 ease-out"
                   // style={getSpotlightTransform(15, 1.0)}
@@ -186,7 +188,7 @@ export default function Home() {
           {/* Layer 4: Border (closest to front) */}
           <div className="absolute inset-0 z-10 flex items-center justify-center">
             <img
-              src="/mhrkwedding/images/border.png"
+              src={getAssetPath('/images/border.png')}
               alt="Border decoration"
               className="w-full h-full pt-10 object-fill opacity-100 transition-transform duration-300 ease-out"
               // style={getSpotlightTransform(0, 1)}

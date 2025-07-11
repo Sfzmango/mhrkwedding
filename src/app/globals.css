@@ -1,12 +1,6 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Soria';
-  src: url('/mhrkwedding/soria-font.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* Font will be loaded dynamically by FontLoader component */
 
 :root {
   --background: #ffffff;

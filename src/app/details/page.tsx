@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation'
+import { getAssetPath } from '@/utils/assetPath'
 
 export default function DetailsPage() {
   return (
@@ -6,7 +7,7 @@ export default function DetailsPage() {
       <Navigation />
       <main className="min-h-screen relative"
         style={{
-          backgroundImage: "url('/mhrkwedding/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')",
+          backgroundImage: `url('${getAssetPath('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

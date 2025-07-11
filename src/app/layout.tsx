@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
+import FontLoader from "@/components/FontLoader";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${montserrat.variable} font-montserrat bg-cream`}>
+        <FontLoader />
         {children}
       </body>
     </html>
