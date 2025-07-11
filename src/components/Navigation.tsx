@@ -1,13 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
-  const pathname = usePathname()
 
   return (
     <nav className="fixed w-full z-50 transition-all duration-300 transform bg-[#41251A]/100 border-b border-black">

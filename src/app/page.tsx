@@ -2,7 +2,7 @@
 
 import Navigation from '@/components/Navigation'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 function getRandomLeaf(index: number, width: number, height: number) {
@@ -27,30 +27,38 @@ function getRandomLeaf(index: number, width: number, height: number) {
 }
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hasMounted, setHasMounted] = useState(false)
   const [isPortrait, setIsPortrait] = useState(false)
-  const [leaves, setLeaves] = useState<any[]>([]);
+  const [leaves, setLeaves] = useState<Array<{
+    img: string;
+    angle: number;
+    x0: number;
+    y0: number;
+    x1: number;
+    y1: number;
+    size: number;
+  }>>([]);
   const [animateLeaves, setAnimateLeaves] = useState(false);
 
   useEffect(() => {
     setHasMounted(true)
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e
-      const centerX = window.innerWidth / 2
-      const centerY = window.innerHeight / 2
-      const normalizedX = (clientX - centerX) / centerX
-      const normalizedY = (clientY - centerY) / centerY
-      setMousePosition({ x: normalizedX, y: normalizedY })
-    }
+    // const handleMouseMove = (e: MouseEvent) => {
+    //   const { clientX, clientY } = e
+    //   const centerX = window.innerWidth / 2
+    //   const centerY = window.innerHeight / 2
+    //   const normalizedX = (clientX - centerX) / centerX
+    //   const normalizedY = (clientY - centerY) / centerY
+    //   setMousePosition({ x: normalizedX, y: normalizedY })
+    // }
     const checkOrientation = () => {
       setIsPortrait(window.innerHeight * 1.5 > window.innerWidth)
     }
-    window.addEventListener('mousemove', handleMouseMove)
+    // window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('resize', checkOrientation)
     checkOrientation()
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
+      // window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('resize', checkOrientation)
     }
   }, [])
@@ -68,16 +76,16 @@ export default function Home() {
     setTimeout(() => setLeaves([]), 2000);
   }, []);
 
-  const getSpotlightTransform = (layerDepth: number, baseScale: number) => {
-    const intensity = 0.3
-    const translateX = mousePosition.x * intensity * layerDepth
-    const translateY = mousePosition.y * intensity * layerDepth
-    const scale = baseScale + (Math.abs(mousePosition.x) + Math.abs(mousePosition.y)) * 0.1
-    return {
-      transform: `translateZ(${-layerDepth}px) translate(${translateX * 50}px, ${translateY * 50}px) scale(${scale})`,
-      transformStyle: 'preserve-3d' as const
-    }
-  }
+  // const getSpotlightTransform = (layerDepth: number, baseScale: number) => {
+  //   const intensity = 0.3
+  //   const translateX = mousePosition.x * intensity * layerDepth
+  //   const translateY = mousePosition.y * intensity * layerDepth
+  //   const scale = baseScale + (Math.abs(mousePosition.x) + Math.abs(mousePosition.y)) * 0.1
+  //   return {
+  //     transform: `translateZ(${-layerDepth}px) translate(${translateX * 50}px, ${translateY * 50}px) scale(${scale})`,
+  //     transformStyle: 'preserve-3d' as const
+  //   }
+  // }
 
   return (
     <>
