@@ -152,7 +152,8 @@ export default function Home() {
               <img
                 src={getAssetPath('/images/circle background v3.png')}
                 alt="Circle background v3"
-                className="h-full object-fill opacity-100 transition-transform duration-300 ease-out"
+                className="h-full w-auto object-contain opacity-100 transition-transform duration-300 ease-out"
+                style={{ minWidth: '400px', maxWidth: 'none' }}
                 // style={getSpotlightTransform(15, 1.1)}
               />
             </div>
@@ -178,7 +179,7 @@ export default function Home() {
                 <img
                   src={getAssetPath('/images/circle background v2.png')}
                   alt="Circle background"
-                  className="h-full object-fill ml-auto mt-10 mb-auto opacity-100 transition-transform duration-300 ease-out"
+                  className="h-full min-h-[1000px] object-fill ml-auto mt-10 mb-auto opacity-100 transition-transform duration-300 ease-out"
                   // style={getSpotlightTransform(15, 1.0)}
                 />
               </div>
@@ -194,60 +195,79 @@ export default function Home() {
               // style={getSpotlightTransform(0, 1)}
             />
           </div>
-
           {/* Content - Positioned to the right with dramatic shadow */}
-          <div className="relative z-30 text-center p-4  mr-auto mt-auto py-10 mb-8 ml-8 md:ml-16 lg:ml-24 rounded-xl bg-[#41251A]/70 opacity-100">
-            <h1 
-              className="font-soria text-xl md:text-2xl lg:text-5xl mb-6 text-sunset animate-fade-in-up drop-shadow-lg"
-              style={{ fontFamily: 'Soria, serif' }}
-            >
-              Maung Htike & Rose Kilgore
-            </h1>
-            <p 
-              className="text-xl md:text-2xl lg:text-3xl font-soria text-sunset animate-fade-in-up-delayed mb-8 drop-shadow-lg"
-              style={{ fontFamily: 'Soria, serif' }}
-            >
-              Celebrating our love
-            </p>
-            <p 
-              className="text-lg md:text-xl font-soria text-sunset mb-12 opacity-90 drop-shadow-lg"
-              style={{ fontFamily: 'Soria, serif' }}
-            >
-              February 15, 2026
-            </p>
-            {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/details"
-                className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-soria text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                style={{ fontFamily: 'Soria, serif' }}
-              >
-                <span className="relative z-10">RSVP</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
-              {/* <Link
-                href="/couple"
-                className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-soria text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                style={{ fontFamily: 'Soria, serif' }}
-              >
-                <span className="relative z-10">Our Story</span>
-              </Link>
-              <Link
-                href="/activities"
-                className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-soria text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                style={{ fontFamily: 'Soria, serif' }}
-              >
-                <span className="relative z-10">Activities</span>
-              </Link>
-              <Link
-                href="/registry"
-                className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-soria text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                style={{ fontFamily: 'Soria, serif' }}
-              >
-                <span className="relative z-10">Wedding Registry</span>
-              </Link> */}
+          {hasMounted && (isPortrait ? (
+            <div className="relative z-30 text-center p-4 mt-auto py-10 mb-20 rounded-xl bg-[#41251A]/70 opacity-100 w-screen -ml-4">
+              <div>
+                <h1 className="font-art-nouveau text-xl md:text-2xl lg:text-5xl mb-6 text-sunset animate-fade-in-up drop-shadow-lg" style={{ fontFamily: 'P22ArtNouveau, serif' }}>
+                  Maung Htike & Rose Kilgore
+                </h1>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/details"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                >
+                  <span className="relative z-10">RSVP</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="relative z-30 text-center p-4  mr-auto mt-auto py-10 mb-8 ml-8 md:ml-16 lg:ml-24 rounded-xl bg-[#41251A]/70 opacity-100">
+              <h1 
+                className="font-art-nouveau text-xl md:text-2xl lg:text-5xl mb-6 text-sunset animate-fade-in-up drop-shadow-lg"
+                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+              >
+                Maung Htike & Rose Kilgore
+              </h1>
+              <p 
+                className="text-xl md:text-2xl lg:text-3xl font-art-nouveau text-sunset animate-fade-in-up-delayed mb-8 drop-shadow-lg"
+                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+              >
+                Celebrating our love
+              </p>
+              <p 
+                className="text-lg md:text-xl font-art-nouveau text-sunset mb-12 opacity-90 drop-shadow-lg"
+                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+              >
+                February 15, 2026
+              </p>
+              {/* Call to Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/details"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                >
+                  <span className="relative z-10">RSVP</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+                {/* <Link
+                  href="/couple"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                >
+                  <span className="relative z-10">Our Story</span>
+                </Link>
+                <Link
+                  href="/activities"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                >
+                  <span className="relative z-10">Activities</span>
+                </Link>
+                <Link
+                  href="/registry"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                >
+                  <span className="relative z-10">Wedding Registry</span>
+                </Link> */}
+              </div>
+            </div>
+          ))}
         </section>
       </main>
     </>

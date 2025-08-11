@@ -18,9 +18,8 @@ const config: Config = {
         'murrey': '#841B47',
       },
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
+        'art-nouveau': ['P22ArtNouveau', 'serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
-        'soria': ['Soria', 'serif'],
       },
       backgroundImage: {
         'redwood-pattern': "url('/images/redwood-pattern.png')",

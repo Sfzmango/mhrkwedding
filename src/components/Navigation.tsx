@@ -10,7 +10,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-playfair text-sunset text-xl hover:text-hunyadi-yellow transition-colors"
+            className="font-art-nouveau text-sunset text-xl hover:text-hunyadi-yellow transition-colors"
           >
             HOME
           </Link>

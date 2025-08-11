@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation'
+import PhotoCarousel from '@/components/PhotoCarousel'
 import { getAssetPath } from '@/utils/assetPath'
 
 export default function DetailsPage() {
@@ -17,7 +18,7 @@ export default function DetailsPage() {
         {/* <section className="relative h-64 flex items-center justify-center bg-gradient-to-br from-bistre via-chestnut to-murrey">
           <div className="absolute inset-0 z-10" />
           <div className="relative z-20 text-center">
-            <h1 className="font-playfair text-4xl md:text-6xl mb-auto text-[#41251A] bg-white rounded-lg shadow-lg p-2">
+            <h1 className="font-art-nouveau text-4xl md:text-6xl mb-auto text-[#41251A] bg-white rounded-lg shadow-lg p-2">
               Wedding Details
             </h1>
           </div>
@@ -30,30 +31,57 @@ export default function DetailsPage() {
               <div className="grid md:grid-cols-2 gap-12">
                 {/* Ceremony */}
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h2 className="font-playfair text-3xl text-black mb-6">Ceremony</h2>
+                  <h2 className="font-art-nouveau text-3xl text-black mb-6">Ceremony</h2>
+                  
+                  {/* Ceremony Photo Carousel */}
+                  <PhotoCarousel
+                    images={[
+                      '/images/amphitheater1.jpg',
+                      '/images/amphitheater2.jpg',
+                      '/images/amphitheater3.jpg',
+                      '/images/amphitheater4.jpg',
+                    ]}
+                    title="Old Mill Park Amphitheater"
+                    altText="Ceremony venue"
+                  />
+                  
                   <div className="space-y-4">
                     <div>
-                      <h3 className="font-playfair text-xl text-gray-600 font-bold mb-2">Venue</h3>
-                      <p className="font-montserrat text-gray-700">Old Mill Park Amphitheater <br /> 315 Throckmorton Ave, Mill Valley, CA 94941</p>
+                      <h3 className="font-art-nouveau text-xl text-gray-600 font-bold mb-2">Venue</h3>
+                      <p className="font-art-nouveau text-gray-700">Old Mill Park Amphitheater <br /> 315 Throckmorton Ave, Mill Valley, CA 94941</p>
                     </div>
                     <div>
-                      <h3 className="font-playfair text-xl text-gray-600 font-boldmb-2">Time</h3>
-                      <p className="font-montserrat text-gray-700">2:00 PM</p>
+                      <h3 className="font-art-nouveau text-xl text-gray-600 font-bold mb-2">Time</h3>
+                      <p className="font-art-nouveau text-gray-700">2:00 PM</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Reception */}
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <h2 className="font-playfair text-3xl text-black mb-6">Reception</h2>
+                  <h2 className="font-art-nouveau text-3xl text-black mb-6">Reception</h2>
+                  
+                  {/* Reception Photo Carousel */}
+                  <PhotoCarousel
+                    images={[
+                      '/images/falkirk1.jpg',
+                      '/images/falkirk2.jpg',
+                      '/images/falkirk3.jpg',
+                      '/images/falkirk4.jpg',
+                      '/images/falkirk5.jpg',
+                    ]}
+                    title="Falkirk Cultural Center"
+                    altText="Reception venue"
+                  />
+                  
                   <div className="space-y-4">
                     <div>
-                      <h3 className="font-playfair text-xl text-gray-600 font-bold mb-2">Venue</h3>
-                      <p className="font-montserrat text-gray-700">Falkirk Cultural Center <br /> 1408 Mission Ave, San Rafael, CA 94901</p>
+                      <h3 className="font-art-nouveau text-xl text-gray-600 font-bold mb-2">Venue</h3>
+                      <p className="font-art-nouveau text-gray-700">Falkirk Cultural Center <br /> 1408 Mission Ave, San Rafael, CA 94901</p>
                     </div>
                     <div>
-                      <h3 className="font-playfair text-xl text-gray-600 font-bold mb-2">Time</h3>
-                      <p className="font-montserrat text-gray-700">4:00 PM</p>
+                      <h3 className="font-art-nouveau text-xl text-gray-600 font-bold mb-2">Time</h3>
+                      <p className="font-art-nouveau text-gray-700">4:00 PM</p>
                     </div>
                   </div>
                 </div>
@@ -61,11 +89,11 @@ export default function DetailsPage() {
 
               {/* RSVP Section */}
               <div className="mt-12 bg-white p-8 rounded-lg shadow-lg">
-                <h2 className="font-playfair text-3xl text-black mb-6 text-center">RSVP</h2>
+                <h2 className="font-art-nouveau text-3xl text-black mb-6 text-center">RSVP</h2>
                 <form className="max-w-2xl mx-auto space-y-6" action="https://formsubmit.co/d3f63caa2715a89816af0e1ce74867d0" method="POST">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block font-montserrat text-gray-600 mb-2">
+                      <label htmlFor="firstName" className="block font-art-nouveau text-gray-600 mb-2">
                         First Name
                       </label>
                       <input
@@ -77,7 +105,7 @@ export default function DetailsPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="lastName" className="block font-montserrat text-gray-600 mb-2">
+                      <label htmlFor="lastName" className="block font-art-nouveau text-gray-600 mb-2">
                         Last Name
                       </label>
                       <input
@@ -90,7 +118,7 @@ export default function DetailsPage() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block font-montserrat text-gray-600 mb-2">
+                    <label htmlFor="email" className="block font-art-nouveau text-gray-600 mb-2">
                       Email
                     </label>
                     <input
@@ -102,7 +130,7 @@ export default function DetailsPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="attendance" className="block font-montserrat text-gray-600 mb-2">
+                    <label htmlFor="attendance" className="block font-art-nouveau text-gray-600 mb-2">
                       Will you attend?
                     </label>
                     <select 
@@ -112,25 +140,25 @@ export default function DetailsPage() {
                       required
                     >
                       <option value="">Please select...</option>
-                      <option value="yes">Yes, I&apos;ll be there</option>
-                      <option value="no">Sorry, I can&apos;t make it</option>
+                      <option value="yes">Yes, I will be there</option>
+                      <option value="no">Sorry, I can not make it</option>
+                      <option value="tentative">I will let you know before RSVP deadline</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="guests" className="block font-montserrat text-gray-600 mb-2">
-                      Number of Guests (including yourself)
+                    <label htmlFor="guests" className="block font-art-nouveau text-gray-600 mb-2">
+                      Would you like to bring a guest? If so please provide their relation and information
                     </label>
                     <input
                       id="guests"
-                      type="number"
+                      type="text"
                       name="guests"
-                      min="1"
-                      max="5"
                       className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow text-black"
+                      required
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block font-montserrat text-gray-600 mb-2">
+                    <label htmlFor="message" className="block font-art-nouveau text-gray-600 mb-2">
                       Message (optional)
                     </label>
                     <textarea
@@ -143,7 +171,7 @@ export default function DetailsPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-hunyadi-yellow text-gray-600 py-3 rounded hover:bg-opacity-90 transition font-montserrat text-lg"
+                    className="w-full bg-hunyadi-yellow text-gray-600 py-3 rounded hover:bg-opacity-90 transition font-art-nouveau text-lg"
                   >
                     Submit RSVP
                   </button>

@@ -6,13 +6,13 @@ import { getAssetPath } from '@/utils/assetPath'
 export default function FontLoader() {
   useEffect(() => {
     // Dynamically set the font URL based on environment
-    const fontUrl = getAssetPath('/soria-font.ttf')
+    const fontUrl = getAssetPath('/P22 Art Nouveau Bistro Regular.ttf')
     
     // Create a new style element
     const style = document.createElement('style')
     style.textContent = `
       @font-face {
-        font-family: 'Soria';
+        font-family: 'P22ArtNouveau';
         src: url('${fontUrl}') format('truetype');
         font-weight: normal;
         font-style: normal;
