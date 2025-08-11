@@ -23,7 +23,7 @@ function getRandomLeaf(index: number, width: number, height: number) {
   const scale = (maxDistance + distance) / distance;
   const x1 = centerX + dx * scale;
   const y1 = centerY + dy * scale;
-  const size = 250 + Math.random() * 90;
+  const size = 500 + Math.random() * 90;
   return { img, angle, x0, y0, x1, y1, size };
 }
 
@@ -69,7 +69,7 @@ export default function Home() {
     const width = window.innerWidth;
     const height = window.innerHeight;
     const arr = [];
-    const leafCount = isPortrait ? 30 : 150;
+    const leafCount = isPortrait ? 20 : 110;
     for (let i = 0; i < leafCount; i++) {
       arr.push(getRandomLeaf(i, width, height));
     }
@@ -125,7 +125,7 @@ export default function Home() {
       )}
       <Navigation />
       <main
-        className="min-h-screen relative"
+        className="min-h-screen relative text-[#F1AF47]"
         style={{
           backgroundImage: `url('${getAssetPath('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')}')`,
           backgroundSize: 'cover',
@@ -152,8 +152,12 @@ export default function Home() {
               <img
                 src={getAssetPath('/images/circle background v3.png')}
                 alt="Circle background v3"
-                className="h-full w-auto object-contain opacity-100 transition-transform duration-300 ease-out"
-                style={{ minWidth: '400px', maxWidth: 'none' }}
+                className="h-full w-auto object-contain opacity-100 animate-veil-flow"
+                style={{ 
+                  minWidth: '400px', 
+                  maxWidth: 'none',
+                  transformOrigin: 'top left'
+                }}
                 // style={getSpotlightTransform(15, 1.1)}
               />
             </div>
@@ -165,7 +169,7 @@ export default function Home() {
                 <img
                   src={getAssetPath('/images/MnR v2.png')}
                   alt="MnR logo"
-                  className="w-3/4 h-auto ml-auto mt-10 mb-auto object-contain opacity-100 transition-transform duration-300 ease-out"
+                  className="w-3/4 h-auto ml-auto mt-10 mb-auto object-contain opacity-100 transition-transform duration-300 animate-veil-flow ease-out"
                   style={{
                     maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
@@ -187,27 +191,42 @@ export default function Home() {
           ))}
 
           {/* Layer 4: Border (closest to front) */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center">
-            <img
-              src={getAssetPath('/images/border.png')}
-              alt="Border decoration"
-              className="w-full h-full pt-10 object-fill opacity-100 transition-transform duration-300 ease-out"
-              // style={getSpotlightTransform(0, 1)}
-            />
-          </div>
+          {hasMounted && (isPortrait ? (
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <img
+                  src={getAssetPath('/images/border-v.png')}
+                  alt="Border decoration"
+                  className="w-full h-full pt-10 object-fill opacity-100 transition-transform duration-300 ease-out"
+                  // style={getSpotlightTransform(0, 1)}
+                />
+              </div>
+            ) : (
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <img
+                  src={getAssetPath('/images/border-h.png')}
+                  alt="Border decoration"
+                  className="w-full h-full pt-10 object-fill opacity-100 transition-transform duration-300 ease-out"
+                  // style={getSpotlightTransform(0, 1)}
+                />
+              </div>
+            ) )}
+
           {/* Content - Positioned to the right with dramatic shadow */}
           {hasMounted && (isPortrait ? (
             <div className="relative z-30 text-center p-4 mt-auto py-10 mb-20 rounded-xl bg-[#41251A]/70 opacity-100 w-screen -ml-4">
               <div>
-                <h1 className="font-art-nouveau text-xl md:text-2xl lg:text-5xl mb-6 text-sunset animate-fade-in-up drop-shadow-lg" style={{ fontFamily: 'P22ArtNouveau, serif' }}>
+                <h1 className="font-art-nouveau-regular text-3xl md:text-2xl lg:text-5xl mb-6 animate-fade-in-up drop-shadow-lg" style={{ fontFamily: 'P22ArtNouveau, serif' }}>
                   Maung Htike & Rose Kilgore
                 </h1>
+                <p className="text-xl font-art-nouveau-caps mb-12 opacity-90 drop-shadow-lg" style={{ fontFamily: 'ArtNouveauCaps, serif' }}>
+                  February 15, 2026
+                </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   href="/details"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                 >
                   <span className="relative z-10">RSVP</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -215,22 +234,22 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div className="relative z-30 text-center p-4  mr-auto mt-auto py-10 mb-8 ml-8 md:ml-16 lg:ml-24 rounded-xl bg-[#41251A]/70 opacity-100">
+            <div className="relative z-30 text-center p-4 mr-auto mt-auto py-10 mb-auto ml-8 ml-100 rounded-xl bg-[#41251A]/70 opacity-100">
               <h1 
-                className="font-art-nouveau text-xl md:text-2xl lg:text-5xl mb-6 text-sunset animate-fade-in-up drop-shadow-lg"
-                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                className="font-art-nouveau-regular text-xl md:text-2xl lg:text-5xl mb-6 animate-fade-in-up drop-shadow-lg"
+                style={{ fontFamily: 'PCArtNouveauRegular, serif' }}
               >
                 Maung Htike & Rose Kilgore
               </h1>
               <p 
-                className="text-xl md:text-2xl lg:text-3xl font-art-nouveau text-sunset animate-fade-in-up-delayed mb-8 drop-shadow-lg"
-                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                className="text-5xl font-art-nouveau animate-fade-in-up-delayed mb-8 drop-shadow-lg"
+                style={{ fontFamily: ' P22ArtNouveau, serif' }}
               >
                 Celebrating our love
               </p>
               <p 
-                className="text-lg md:text-xl font-art-nouveau text-sunset mb-12 opacity-90 drop-shadow-lg"
-                style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                className="text-xl font-art-nouveau-caps mb-12 opacity-90 drop-shadow-lg"
+                style={{ fontFamily: 'ArtNouveauCaps, serif' }}
               >
                 February 15, 2026
               </p>
@@ -238,10 +257,10 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   href="/details"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
                   style={{ fontFamily: 'P22ArtNouveau, serif' }}
                 >
-                  <span className="relative z-10">RSVP</span>
+                  <span className="relative font-art-nouveau-caps z-10">RSVP</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
                 {/* <Link

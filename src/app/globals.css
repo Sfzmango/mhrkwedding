@@ -9,9 +9,26 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'PCArtNouveauRegular';
+  src: url('/PC Art Nouveau Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArtNouveauCaps';
+  src: url('/Art Nouveau Caps.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --txt-color: #F1AF47;
 }
 
 @theme inline {
@@ -31,12 +48,19 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'P22ArtNouveau', Arial, Helvetica, sans-serif;
+  /* font-family: 'P22ArtNouveau', Arial, Helvetica, sans-serif; */
+  text-color: #F1AF47;
 }
 
 /* Custom font utility class */
 .font-art-nouveau {
   font-family: 'P22ArtNouveau', serif !important;
+}
+.font-art-nouveau-regular {
+  font-family: 'PCArtNouveauRegular', serif !important;
+}
+.font-art-nouveau-caps {
+  font-family: 'ArtNouveauCaps', serif !important;
 }
 
 /* Carousel fade animation */
@@ -49,4 +73,27 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* Veil flow animation */
+@keyframes veilFlow {
+  0% {
+    transform: rotate(0deg) scale(1) translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: rotate(1deg) scale(1.01) translateX(-4px) translateY(-2px);
+  }
+  50% {
+    transform: rotate(0deg) scale(1) translateX(0px) translateY(0px);
+  }
+  75% {
+    transform: rotate(-1deg) scale(0.99) translateX(4px) translateY(2px);
+  }
+  100% {
+    transform: rotate(0deg) scale(1) translateX(0px) translateY(0px);
+  }
+}
+
+.animate-veil-flow {
+  animation: veilFlow 8s ease-in-out infinite;
 }
