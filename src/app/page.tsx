@@ -315,7 +315,7 @@ export default function Home() {
             <div 
               className="max-w-[75%] relative z-30 text-center p-2 mt-auto mb-30 opacity-100 w-screen rounded-md"
               style={{
-                backgroundImage: `url('${getAssetPath('/images/textbox_border.webp')}')`,
+                backgroundImage: `url('${getAssetPath('/images/textbox_border.png')}')`,
                 backgroundSize: '100% 100%',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
@@ -350,7 +350,7 @@ export default function Home() {
             <div 
               className="relative z-30 text-center mr-auto mt-auto ml-[15%] mb-auto opacity-100 rounded-xl"
               style={{
-                backgroundImage: `url('${getAssetPath('/images/textbox_border.webp')}')`,
+                backgroundImage: `url('${getAssetPath('/images/textbox_border.png')}')`,
                 backgroundSize: '100% 100%',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
