@@ -5,12 +5,12 @@ import Link from 'next/link'
 const Navigation = () => {
 
   return (
-    <nav className="fixed w-full z-50 transition-all duration-300 transform bg-[#41251A]/100 border-b border-black font-art-nouveau text-[#F1AF47]">
+    <nav className="fixed w-full z-50 transition-all duration-300 transform border-b border-black font-art-nouveau-caps text-[#F1AF47] bg-[#41251A]/100 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 text-3xl">
           <Link
             href="/"
-            className="font-art-nouveau text-sunset hover:text-hunyadi-yellow transition-colors"
+            className=" text-sunset hover:text-hunyadi-yellow transition-colors"
           >
             HOME
           </Link>

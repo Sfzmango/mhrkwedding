@@ -4,6 +4,6 @@
  * In production: assets are served from /mhrkwedding base path
  */
 export function getAssetPath(path: string): string {
-  const basePath = process.env.NODE_ENV === 'production' ? '/mhrkwedding' : '';
-  return `${basePath}${path}`;
+  // For GitHub Pages with custom domain, no base path needed
+  return path;
 } 

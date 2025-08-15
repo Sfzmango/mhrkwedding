@@ -97,3 +97,26 @@ body {
 .animate-veil-flow {
   animation: veilFlow 8s ease-in-out infinite;
 }
+
+/* Optimized leaf animation using CSS transforms - Portrait mode only */
+.leaf-animate {
+  animation: leafMove 1.7s cubic-bezier(.77,0,.18,1) forwards;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes leafMove {
+  0% {
+    transform: rotate(var(--angle, 0deg)) translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle, 0deg)) 
+               translate(
+                 calc(var(--direction-x) * var(--scale) * 100vw), 
+                 calc(var(--direction-y) * var(--scale) * 100vh)
+               ) 
+               scale(0.8);
+    opacity: 0;
+  }
+}

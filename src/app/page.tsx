@@ -6,25 +6,66 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { getAssetPath } from '@/utils/assetPath'
 
-function getRandomLeaf(index: number, width: number, height: number) {
+function getRandomLeaf(index: number, width: number, height: number, isPortrait: boolean) {
   const img = Math.random() > 0.5 ? getAssetPath('/images/leaves 1.png') : getAssetPath('/images/leaves 2.png');
-  const angle = Math.random() * 360;
-  // Start: random position covering the screen
-  const x0 = Math.random() * width;
-  const y0 = Math.random() * height;
-  // End: move outward from center
-  const centerX = width / 2;
-  const centerY = height / 2;
-  const dx = x0 - centerX;
-  const dy = y0 - centerY;
-  // Move further out in the same direction (offscreen)
-  const distance = Math.sqrt(dx * dx + dy * dy);
-  const maxDistance = Math.max(width, height) * 0.7;
-  const scale = (maxDistance + distance) / distance;
-  const x1 = centerX + dx * scale;
-  const y1 = centerY + dy * scale;
-  const size = 500 + Math.random() * 90;
-  return { img, angle, x0, y0, x1, y1, size };
+  const size = 400 + Math.random() * 100;
+  
+  if (isPortrait) {
+    // Portrait mode: optimized CSS-based animation
+    const x0 = Math.random() * width;
+    const y0 = Math.random() * height;
+    
+    const centerX = width * 0.25;
+    const centerY = height * 0.5;
+    const dx = x0 - centerX;
+    const dy = y0 - centerY;
+    
+    const distanceSquared = dx * dx + dy * dy;
+    const maxDistance = Math.max(width, height) * 0.7;
+    
+    const distance = Math.sqrt(distanceSquared);
+    const normalizedDx = dx / distance;
+    const normalizedDy = dy / distance;
+    const scale = (maxDistance + distance) / distance;
+    
+    return { 
+      img, 
+      angle: Math.random() * 360,
+      x0, 
+      y0, 
+      directionX: normalizedDx,
+      directionY: normalizedDy,
+      scale,
+      size,
+      isPortrait: true
+    };
+  } else {
+    // Landscape mode: original JavaScript-based animation
+    const x0 = Math.random() * width;
+    const y0 = Math.random() * height;
+    
+    const centerX = width / 4;
+    const centerY = height / 2;
+    const dx = x0 - centerX;
+    const dy = y0 - centerY;
+    
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const maxDistance = Math.max(width, height) * 0.7;
+    const scale = (maxDistance + distance) / distance;
+    const x1 = centerX + dx * scale;
+    const y1 = centerY + dy * scale;
+    
+    return { 
+      img, 
+      angle: Math.random() * 360,
+      x0, 
+      y0, 
+      x1, 
+      y1, 
+      size,
+      isPortrait: false
+    };
+  }
 }
 
 export default function Home() {
@@ -36,10 +77,21 @@ export default function Home() {
     angle: number;
     x0: number;
     y0: number;
-    x1: number;
-    y1: number;
     size: number;
-  }>>([]);
+    isPortrait: boolean;
+  } & (
+    | {
+        // Portrait mode: CSS-based animation
+        directionX: number;
+        directionY: number;
+        scale: number;
+      }
+    | {
+        // Landscape mode: JavaScript-based animation
+        x1: number;
+        y1: number;
+      }
+  )>>([]);
   const [animateLeaves, setAnimateLeaves] = useState(false);
 
   useEffect(() => {
@@ -65,18 +117,37 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    // Leaves curtain animation
+    // Leaves curtain animation - optimized generation
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const arr = [];
-    const leafCount = isPortrait ? 20 : 110;
-    for (let i = 0; i < leafCount; i++) {
-      arr.push(getRandomLeaf(i, width, height));
-    }
-    setLeaves(arr);
-    setTimeout(() => setAnimateLeaves(true), 100);
-    setTimeout(() => setLeaves([]), 4000);
+    const leafCount = isPortrait ? 30 : 110;
+    
+    // Use Array.from for more efficient array creation
+    const newLeaves = Array.from({ length: leafCount }, (_, i) => 
+      getRandomLeaf(i, width, height, isPortrait)
+    );
+    
+    setLeaves(newLeaves);
+    
+    // Use a single timeout for animation start
+    const animationTimer = setTimeout(() => setAnimateLeaves(true), 1500);
+    const cleanupTimer = setTimeout(() => setLeaves([]), 10000);
+    
+    return () => {
+      clearTimeout(animationTimer);
+      clearTimeout(cleanupTimer);
+    };
   }, [isPortrait]);
+
+  // Helper function to check if leaf is portrait type
+  const isPortraitLeaf = (leaf: typeof leaves[0]): leaf is typeof leaves[0] & { directionX: number; directionY: number; scale: number } => {
+    return leaf.isPortrait;
+  };
+
+  // Helper function to check if leaf is landscape type
+  const isLandscapeLeaf = (leaf: typeof leaves[0]): leaf is typeof leaves[0] & { x1: number; y1: number } => {
+    return !leaf.isPortrait;
+  };
 
   // const getSpotlightTransform = (layerDepth: number, baseScale: number) => {
   //   const intensity = 0.3
@@ -109,16 +180,32 @@ export default function Home() {
               alt=""
               style={{
                 position: 'absolute',
-                left: animateLeaves ? leaf.x1 - leaf.size / 2 : leaf.x0 - leaf.size / 2,
-                top: animateLeaves ? leaf.y1 - leaf.size / 2 : leaf.y0 - leaf.size / 2,
+                left: leaf.x0 - leaf.size / 2,
+                top: leaf.y0 - leaf.size / 2,
                 width: leaf.size,
                 height: leaf.size,
-                transform: `rotate(${leaf.angle}deg)`,
-                opacity: animateLeaves ? 0 : 1,
-                transition: 'all 1.7s cubic-bezier(.77,0,.18,1)',
-                transitionDelay: `${Math.random() * 2}s`,
                 filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))',
-              }}
+                // Conditional styling based on animation type
+                ...(isPortraitLeaf(leaf) ? {
+                  // Portrait mode: CSS-based animation properties
+                  '--direction-x': leaf.directionX,
+                  '--direction-y': leaf.directionY,
+                  '--scale': leaf.scale,
+                  '--angle': `${leaf.angle}deg`,
+                  '--delay': `${Math.random() * 2}s`,
+                  '--center-x': '25%',
+                  '--center-y': '50%',
+                } : {
+                  // Landscape mode: JavaScript-based animation properties
+                  transform: `rotate(${leaf.angle}deg)`,
+                  opacity: animateLeaves ? 0 : 1,
+                  transition: 'all 1.7s cubic-bezier(.77,0,.18,1)',
+                  transitionDelay: `${Math.random() * 2}s`,
+                  left: animateLeaves && isLandscapeLeaf(leaf) ? leaf.x1 - leaf.size / 2 : leaf.x0 - leaf.size / 2,
+                  top: animateLeaves && isLandscapeLeaf(leaf) ? leaf.y1 - leaf.size / 2 : leaf.y0 - leaf.size / 2,
+                }),
+              } as React.CSSProperties & { [key: string]: string | number }}
+              className={isPortraitLeaf(leaf) && animateLeaves ? 'leaf-animate' : ''}
             />
           ))}
         </div>
