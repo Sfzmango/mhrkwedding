@@ -29,12 +29,12 @@ export default function DetailsPage() {
         </section> */}
 
         {/* Wedding Details Section */}
-        <section className="py-20 text-[#41251A]">
+        <section className="py-20 text-[#f5e4f3]">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12">
                 {/* Ceremony */}
-                <div className="bg-[#F1AF47]/100 p-8 rounded-lg shadow-lg flex flex-col h-full">
+                <div className="bg-[#5e1623]/100 p-8 rounded-lg shadow-lg flex flex-col h-full">
                   <h2 className="font-art-nouveau-caps text-3xl mb-6">Ceremony</h2>
                   
                   {/* Ceremony Photo Carousel */}
@@ -73,7 +73,7 @@ export default function DetailsPage() {
                 </div>
 
                 {/* Reception */}
-                <div className="bg-[#41251A]/100 p-8 rounded-lg shadow-lg flex flex-col h-full">
+                <div className="bg-[#5e1623]/100 p-8 rounded-lg shadow-lg flex flex-col h-full">
                   <h2 className="font-art-nouveau-caps text-3xl mb-6">Reception</h2>
 
                   {/* Reception Photo Carousel */}
@@ -114,8 +114,9 @@ export default function DetailsPage() {
               </div>
 
               {/* RSVP Section */}
-              <div className="mt-12 bg-[#41251A]/100 p-8 rounded-lg shadow-lg">
-                <h2 className="font-art-nouveau-caps text-3xl text-[#F1AF47] mb-6 text-center">RSVP</h2>
+              <div className="mt-12 bg-[#5e1623]/100 p-8 rounded-lg shadow-lg">
+                <h2 className="font-art-nouveau-caps text-3xl mb-6 text-center">RSVP</h2>
+                <p className="font-art-nouveau-caps text-lg mb-6 text-center">Deadline - December 15, 2025</p>
                 <form className="max-w-2xl mx-auto space-y-6 text-2xl font-art-nouveau-regular" action="https://formsubmit.co/d3f63caa2715a89816af0e1ce74867d0" method="POST">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -168,7 +169,7 @@ export default function DetailsPage() {
                       <option value="">Please select...</option>
                       <option value="yes">Yes, I will be there</option>
                       <option value="no">Sorry, I can not make it</option>
-                      <option value="tentative">I will let you know before RSVP deadline</option>
+                      <option value="tentative">I will let you know before the RSVP deadline</option>
                     </select>
                   </div>
                   <div>
