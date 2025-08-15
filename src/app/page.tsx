@@ -226,7 +226,7 @@ export default function Home() {
       <main
         className="min-h-screen relative text-[#F1AF47]"
         style={{
-          backgroundImage: `url('${getAssetPath('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')}')`,
+          // backgroundImage: `url('${getAssetPath('/images/william-morris-honeysuckle-and-tulip-dark-blue-william-morris.jpg')}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -313,7 +313,7 @@ export default function Home() {
           {/* Content - Positioned to the right with dramatic shadow */}
           {hasMounted && (isPortrait ? (
             <div 
-              className="max-w-[75%] relative z-30 text-center p-2 mt-auto mb-30 opacity-100 w-screen rounded-xl"
+              className="max-w-[75%] relative z-30 text-center p-2 mt-auto mb-30 opacity-100 w-screen rounded-md"
               style={{
                 backgroundImage: `url('${getAssetPath('/images/textbox_border.webp')}')`,
                 backgroundSize: '100% 100%',
@@ -338,7 +338,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   href="/details"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                  className="group relative overflow-hidden bg-[#f4b047] text-black backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
                   style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                 >
                   <span className="relative z-10">RSVP</span>
@@ -385,10 +385,10 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <Link
                     href="/details"
-                    className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                    className="group relative overflow-hidden bg-[#f4b047] backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black "
                     style={{ fontFamily: 'P22ArtNouveau, serif' }}
                   >
-                    <span className="relative font-art-nouveau-caps z-10">RSVP</span>
+                    <span className="relative font-art-nouveau-caps text-black z-10">RSVP</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                   {/* <Link

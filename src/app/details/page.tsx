@@ -63,7 +63,7 @@ export default function DetailsPage() {
                   <div className="mt-auto pt-6 flex justify-center">
                     <button
                         onClick={() => window.open('https://maps.app.goo.gl/uFidpVzFS97sAm6PA', '_blank')}
-                        className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black "
+                        className="group relative overflow-hidden bg-[#f5e4f3] text-[#5e1623] backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black "
                         style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                     >
                       <span className="relative z-10">Directions</span>
@@ -103,7 +103,7 @@ export default function DetailsPage() {
                   <div className="mt-auto pt-6 flex justify-center">
                     <button
                         onClick={() => window.open('https://maps.app.goo.gl/856x41Hd25uCSiMj7', '_blank')}
-                        className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                        className="group relative overflow-hidden bg-[#f5e4f3] text-[#5e1623]  backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
                         style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                     >
                       <span className="relative z-10">Directions</span>
@@ -127,7 +127,7 @@ export default function DetailsPage() {
                         id="firstName"
                         type="text"
                         name="firstName"
-                        className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                        className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                         required
                       />
                     </div>
@@ -139,7 +139,7 @@ export default function DetailsPage() {
                         id="lastName"
                         type="text"
                         name="lastName"
-                        className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                        className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                         required
                       />
                     </div>
@@ -152,7 +152,7 @@ export default function DetailsPage() {
                       id="email"
                       type="email"
                       name="email"
-                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                       required
                     />
                   </div>
@@ -163,7 +163,7 @@ export default function DetailsPage() {
                     <select 
                       id="attendance"
                       name="attendance"
-                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                       required
                     >
                       <option value="">Please select...</option>
@@ -180,7 +180,7 @@ export default function DetailsPage() {
                       id="guests"
                       type="text"
                       name="guests"
-                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                       required
                     />
                   </div>
@@ -192,7 +192,7 @@ export default function DetailsPage() {
                       id="message"
                       rows={4}
                       name="message"
-                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau"
+                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                       placeholder="Any special requests or messages?"
                     />
                   </div>
@@ -200,7 +200,7 @@ export default function DetailsPage() {
                   <div className="mt-auto pt-6 flex justify-center">
                     <button
                       type="submit"
-                      className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                      className="group relative overflow-hidden bg-[#f5e4f3] text-[#5e1623]  backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
                       style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                     >
                         <span className="relative z-10">Submit RSVP</span>
