@@ -103,15 +103,27 @@ body {
   animation: leafMove 1.7s cubic-bezier(.77,0,.18,1) forwards;
   animation-delay: var(--delay, 0s);
   will-change: transform, opacity;
+  transform-origin: center;
 }
 
 @keyframes leafMove {
   0% {
+    /* Start from the initial rotation (already applied via inline style) */
     transform: rotate(var(--angle, 0deg)) translate(0, 0) scale(1);
     opacity: 1;
   }
+  50% {
+    /* Add subtle rotation during movement for more natural effect */
+    transform: rotate(calc(var(--angle, 0deg) + 15deg)) 
+               translate(
+                 calc(var(--direction-x) * var(--scale) * 50vw), 
+                 calc(var(--direction-y) * var(--scale) * 50vh)
+               ) 
+               scale(0.9);
+    opacity: 0.8;
+  }
   100% {
-    transform: rotate(var(--angle, 0deg)) 
+    transform: rotate(calc(var(--angle, 0deg) + 30deg)) 
                translate(
                  calc(var(--direction-x) * var(--scale) * 100vw), 
                  calc(var(--direction-y) * var(--scale) * 100vh)

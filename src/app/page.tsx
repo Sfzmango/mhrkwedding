@@ -8,10 +8,10 @@ import { getAssetPath } from '@/utils/assetPath'
 
 function getRandomLeaf(index: number, width: number, height: number, isPortrait: boolean) {
   const img = Math.random() > 0.5 ? getAssetPath('/images/leaves 1.png') : getAssetPath('/images/leaves 2.png');
-  const size = 400 + Math.random() * 100;
   
   if (isPortrait) {
     // Portrait mode: optimized CSS-based animation
+    const size = 350 + Math.random() * 100;
     const x0 = Math.random() * width;
     const y0 = Math.random() * height;
     
@@ -28,9 +28,14 @@ function getRandomLeaf(index: number, width: number, height: number, isPortrait:
     const normalizedDy = dy / distance;
     const scale = (maxDistance + distance) / distance;
     
+    // Enhanced random rotation for more natural look
+    const baseAngle = Math.random() * 360;
+    const rotationVariation = (Math.random() - 0.5) * 60; // ±22.5 degrees variation
+    const angle = baseAngle + rotationVariation;
+    
     return { 
       img, 
-      angle: Math.random() * 360,
+      angle,
       x0, 
       y0, 
       directionX: normalizedDx,
@@ -41,6 +46,7 @@ function getRandomLeaf(index: number, width: number, height: number, isPortrait:
     };
   } else {
     // Landscape mode: original JavaScript-based animation
+    const size = 750 + Math.random() * 100;
     const x0 = Math.random() * width;
     const y0 = Math.random() * height;
     
@@ -55,9 +61,14 @@ function getRandomLeaf(index: number, width: number, height: number, isPortrait:
     const x1 = centerX + dx * scale;
     const y1 = centerY + dy * scale;
     
+    // Enhanced random rotation for more natural look
+    const baseAngle = Math.random() * 360;
+    const rotationVariation = (Math.random() - 0.5) * 60; // ±30 degrees variation for landscape
+    const angle = baseAngle + rotationVariation;
+    
     return { 
       img, 
-      angle: Math.random() * 360,
+      angle,
       x0, 
       y0, 
       x1, 
@@ -188,6 +199,7 @@ export default function Home() {
                 // Conditional styling based on animation type
                 ...(isPortraitLeaf(leaf) ? {
                   // Portrait mode: CSS-based animation properties
+                  transform: `rotate(${leaf.angle}deg)`, // Apply initial rotation immediately
                   '--direction-x': leaf.directionX,
                   '--direction-y': leaf.directionY,
                   '--scale': leaf.scale,
