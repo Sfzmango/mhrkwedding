@@ -312,12 +312,26 @@ export default function Home() {
 
           {/* Content - Positioned to the right with dramatic shadow */}
           {hasMounted && (isPortrait ? (
-            <div className="relative z-30 text-center p-4 mt-auto py-10 mb-20 rounded-xl bg-[#41251A]/70 opacity-100 w-screen -ml-4">
+            <div 
+              className="max-w-[75%] relative z-30 text-center p-2 mt-auto mb-30 opacity-100 w-screen rounded-xl"
+              style={{
+                backgroundImage: `url('${getAssetPath('/images/textbox_border.webp')}')`,
+                backgroundSize: '100% 100%',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                padding: '2rem',
+                minHeight: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
               <div>
-                <h1 className="font-art-nouveau-regular text-3xl md:text-2xl lg:text-5xl mb-6 animate-fade-in-up drop-shadow-lg" style={{ fontFamily: 'P22ArtNouveau, serif' }}>
+                <h1 className="font-art-nouveau-regular text-3xl md:text-2xl lg:text-5xl mb-4 animate-fade-in-up drop-shadow-lg" style={{ fontFamily: 'P22ArtNouveau, serif' }}>
                   Maung Htike & Rose Kilgore
                 </h1>
-                <p className="text-xl font-art-nouveau-caps mb-12 opacity-90 drop-shadow-lg" style={{ fontFamily: 'ArtNouveauCaps, serif' }}>
+                <p className="text-xl font-art-nouveau-caps mb-4 opacity-90 drop-shadow-lg" style={{ fontFamily: 'ArtNouveauCaps, serif' }}>
                   February 15, 2026
                 </p>
               </div>
@@ -333,56 +347,72 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div className="relative z-30 text-center p-4 mr-auto mt-auto py-10 mb-auto ml-8 ml-100 rounded-xl bg-[#41251A]/70 opacity-100">
-              <h1 
-                className="font-art-nouveau-regular text-xl md:text-2xl lg:text-5xl mb-6 animate-fade-in-up drop-shadow-lg"
-                style={{ fontFamily: 'PCArtNouveauRegular, serif' }}
-              >
-                Maung Htike & Rose Kilgore
-              </h1>
-              <p 
-                className="text-5xl font-art-nouveau animate-fade-in-up-delayed mb-8 drop-shadow-lg"
-                style={{ fontFamily: ' P22ArtNouveau, serif' }}
-              >
-                Celebrating our love
-              </p>
-              <p 
-                className="text-xl font-art-nouveau-caps mb-12 opacity-90 drop-shadow-lg"
-                style={{ fontFamily: 'ArtNouveauCaps, serif' }}
-              >
-                February 15, 2026
-              </p>
-              {/* Call to Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/details"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+            <div 
+              className="relative z-30 text-center mr-auto mt-auto ml-[15%] mb-auto opacity-100 rounded-xl"
+              style={{
+                backgroundImage: `url('${getAssetPath('/images/textbox_border.webp')}')`,
+                backgroundSize: '100% 100%',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                padding: '2rem',
+                minHeight: '400px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <div className='p-15'>
+                <h1 
+                  className="font-art-nouveau-regular text-xl md:text-2xl lg:text-5xl mb-6 animate-fade-in-up drop-shadow-lg"
+                  style={{ fontFamily: 'PCArtNouveauRegular, serif' }}
                 >
-                  <span className="relative font-art-nouveau-caps z-10">RSVP</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Link>
-                {/* <Link
-                  href="/couple"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  Maung Htike & Rose Kilgore
+                </h1>
+                <p 
+                  className="text-5xl font-art-nouveau animate-fade-in-up-delayed mb-4 drop-shadow-lg"
+                  style={{ fontFamily: ' P22ArtNouveau, serif' }}
                 >
-                  <span className="relative z-10">Our Story</span>
-                </Link>
-                <Link
-                  href="/activities"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  Celebrating our love
+                </p>
+                <p 
+                  className="text-xl font-art-nouveau-caps mb-4 opacity-90 drop-shadow-lg"
+                  style={{ fontFamily: 'ArtNouveauCaps, serif' }}
                 >
-                  <span className="relative z-10">Activities</span>
-                </Link>
-                <Link
-                  href="/registry"
-                  className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
-                  style={{ fontFamily: 'P22ArtNouveau, serif' }}
-                >
-                  <span className="relative z-10">Wedding Registry</span>
-                </Link> */}
+                  February 15, 2026
+                </p>
+                {/* Call to Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link
+                    href="/details"
+                    className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                    style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  >
+                    <span className="relative font-art-nouveau-caps z-10">RSVP</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-hunyadi-yellow to-sunset opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
+                  {/* <Link
+                    href="/couple"
+                    className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                    style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  >
+                    <span className="relative z-10">Our Story</span>
+                  </Link>
+                  <Link
+                    href="/activities"
+                    className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                    style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  >
+                    <span className="relative z-10">Activities</span>
+                  </Link>
+                  <Link
+                    href="/registry"
+                    className="group relative overflow-hidden bg-hunyadi-yellow/90 backdrop-blur-sm text-bistre px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black"
+                    style={{ fontFamily: 'P22ArtNouveau, serif' }}
+                  >
+                    <span className="relative z-10">Wedding Registry</span>
+                  </Link> */}
+                </div>
               </div>
             </div>
           ))}
