@@ -20,6 +20,7 @@ const Navigation = () => {
           background: '#41251A'
         }
       case '/details':
+      case '/roadmap':
         return {
           text: '#f5e4f3',
           background: '#5e1623'
@@ -70,12 +71,27 @@ const Navigation = () => {
           >
             HOME
           </Link>
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/details"
               className="text-sunset hover:text-hunyadi-yellow transition-colors"
             >
               RSVP
+            </Link>
+            <span className="text-sunset">|</span>
+            <Link
+              href="/roadmap"
+              className="text-sunset hover:text-hunyadi-yellow transition-colors"
+            >
+              Upcoming Updates
+            </Link>
+            <span className="text-sunset">|</span>
+            <Link
+              href="https://www.myregistry.com/wedding-registry/rose-kilgore-and-maung-htike-san-bruno-ca/5001425"
+              target="_blank"
+              className="text-sunset hover:text-hunyadi-yellow transition-colors"
+            >
+              Registry
             </Link>
             {/* <Link
               href="/couple"

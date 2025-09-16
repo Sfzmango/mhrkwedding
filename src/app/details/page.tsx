@@ -56,13 +56,13 @@ export default function DetailsPage() {
                     </div>
                     <div>
                       <h3 className="font-art-nouveau text-3xl font-bold mb-2">Time</h3>
-                      <p className="font-art-nouveau-regular text-2xl ">2:00 PM</p>
+                      <p className="font-art-nouveau-regular text-2xl ">12:00 Noon</p>
                     </div>
                   </div>
                   
                   <div className="mt-auto pt-6 flex justify-center">
                     <button
-                        onClick={() => window.open('https://maps.app.goo.gl/uFidpVzFS97sAm6PA', '_blank')}
+                        onClick={() => window.open('https://maps.app.goo.gl/GHnhSEuYLtPbtkFN7', '_blank')}
                         className="group relative overflow-hidden bg-[#f5e4f3] text-[#5e1623] backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-opacity-100 transition-all duration-300 font-art-nouveau-caps text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-black "
                         style={{ fontFamily: 'P22ArtNouveauCaps, serif' }}
                     >
@@ -116,8 +116,14 @@ export default function DetailsPage() {
               {/* RSVP Section */}
               <div className="mt-12 bg-[#5e1623]/100 p-8 rounded-lg shadow-lg">
                 <h2 className="font-art-nouveau-caps text-3xl mb-6 text-center">RSVP</h2>
-                <p className="font-art-nouveau-caps text-lg mb-6 text-center">Deadline - December 15, 2025</p>
+                <p className="font-art-nouveau-caps text-lg mb-6 text-center">* Deadline - January 1, 2026 *</p>
                 <form className="max-w-2xl mx-auto space-y-6 text-2xl font-art-nouveau-regular" action="https://formsubmit.co/d3f63caa2715a89816af0e1ce74867d0" method="POST">
+                  {/* FormSubmit configuration */}
+                  <input type="hidden" name="_next" value="http://kilgorewedding.online/roadmap" />
+                  <input type="hidden" name="_subject" value="New Wedding RSVP Submission" />
+                  <input type="hidden" name="_replyto" value="" id="_replyto" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block mb-2">
@@ -145,6 +151,18 @@ export default function DetailsPage() {
                     </div>
                   </div>
                   <div>
+                    <label htmlFor="phoneNumber" className="block mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      id="phoneNumber"
+                      type="text"
+                      name="phoneNumber"
+                      className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
+                      required
+                    />
+                  </div>
+                  <div>
                     <label htmlFor="email" className="block mb-2">
                       Email
                     </label>
@@ -154,6 +172,12 @@ export default function DetailsPage() {
                       name="email"
                       className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
                       required
+                      onChange={(e) => {
+                        const replytoField = document.getElementById('_replyto') as HTMLInputElement;
+                        if (replytoField) {
+                          replytoField.value = e.target.value;
+                        }
+                      }}
                     />
                   </div>
                   <div>
@@ -174,7 +198,7 @@ export default function DetailsPage() {
                   </div>
                   <div>
                     <label htmlFor="guests" className="block mb-2">
-                      Would you like to bring a guest?
+                      Would you like to bring anyone else? (If so, please specify)
                     </label>
                     <input
                       id="guests"
@@ -186,14 +210,14 @@ export default function DetailsPage() {
                   </div>
                   <div>
                     <label htmlFor="message" className="block mb-2">
-                      Any special requests or messages?
+                      Any special requests, dietary restrictions, or messages for the bride and groom?
                     </label>
                     <textarea
                       id="message"
                       rows={4}
                       name="message"
                       className="w-full p-3 border border-hunyadi-yellow rounded focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow font-art-nouveau text-black bg-white"
-                      placeholder="Any special requests or messages?"
+                      placeholder="Example: Maung is such a cool programmer and Rose is such a cool gal!"
                     />
                   </div>
 
