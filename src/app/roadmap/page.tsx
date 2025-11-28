@@ -69,6 +69,16 @@ export default function RoadmapPage() {
                           <p className="font-art-nouveau-regular text-lg">Gift registry and wedding gift information</p>
                         </div>
                       </div>
+
+                      <div className="flex items-start space-x-3">
+                        <div className="w-6 h-6 bg-sunset rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <span className="text-white font-bold text-sm">✅</span>
+                        </div>
+                        <div>
+                          <h3 className="font-art-nouveau text-xl font-bold text-sunset">Dress Code</h3>
+                          <p className="font-art-nouveau-regular text-lg">information about the dress code</p>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="space-y-4">

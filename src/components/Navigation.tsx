@@ -16,6 +16,7 @@ const Navigation = () => {
     switch (normalizedPath) {
       case '':
       case '/':
+      case '/dress-code':
         return {
           text: '#F1AF47',
           background: '#41251A'
@@ -81,12 +82,20 @@ const Navigation = () => {
             </Link>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-4">
+              <span className="text-sunset">|</span>
               <Link
                 href="/details"
                 className="text-sunset hover:text-hunyadi-yellow transition-colors"
               >
                 RSVP
+              </Link>
+              <span className="text-sunset">|</span>
+              <Link
+                href="/dress-code"
+                className="text-sunset hover:text-hunyadi-yellow transition-colors"
+              >
+                Dress Code
               </Link>
               <span className="text-sunset">|</span>
               <Link
@@ -168,6 +177,17 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Upcoming Updates
+              </Link>
+              <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
+              <Link
+                href="/dress-code"
+                className="transition-colors py-3 px-4 rounded-md hover:bg-[#41251A]"
+                style={{ color: colors.text }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#F1AF47'}
+                onMouseLeave={(e) => e.currentTarget.style.color = colors.text}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Dress Code
               </Link>
               <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
               <Link
