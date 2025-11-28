@@ -17,6 +17,7 @@ const Navigation = () => {
       case '':
       case '/':
       case '/dress-code':
+      case '/accommodations':
         return {
           text: '#F1AF47',
           background: '#41251A'
@@ -72,7 +73,7 @@ const Navigation = () => {
           backgroundColor: colors.background
         }}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-[15%] md:px-[5%]">
           <div className="flex items-center justify-between h-16 text-3xl">
             <Link
               href="/"
@@ -81,7 +82,7 @@ const Navigation = () => {
               HOME
             </Link>
             
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation
             <div className="hidden md:flex items-center space-x-4">
               <span className="text-sunset">|</span>
               <Link
@@ -99,6 +100,13 @@ const Navigation = () => {
               </Link>
               <span className="text-sunset">|</span>
               <Link
+                href="/accommodations"
+                className="text-sunset hover:text-hunyadi-yellow transition-colors"
+              >
+                Accommodations
+              </Link>
+              <span className="text-sunset">|</span>
+              <Link
                 href="/roadmap"
                 className="text-sunset hover:text-hunyadi-yellow transition-colors"
               >
@@ -112,11 +120,11 @@ const Navigation = () => {
               >
                 Registry
               </Link>
-            </div>
+            </div> */}
 
             {/* Mobile Hamburger Menu Button */}
             <button
-              className="md:hidden flex flex-col items-center justify-center w-8 h-8 space-y-1"
+              className="flex flex-col items-center justify-center w-8 h-8 space-y-1"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -142,7 +150,7 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div className="fixed inset-0 z-40">
           {/* Frosted Glass Backdrop */}
           <div 
             className="absolute inset-0 backdrop-blur-md bg-white/10"
@@ -169,17 +177,6 @@ const Navigation = () => {
               </Link>
               <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
               <Link
-                href="/roadmap"
-                className="transition-colors py-3 px-4 rounded-md hover:bg-white/10"
-                style={{ color: colors.text }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#F1AF47'}
-                onMouseLeave={(e) => e.currentTarget.style.color = colors.text}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Upcoming Updates
-              </Link>
-              <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
-              <Link
                 href="/dress-code"
                 className="transition-colors py-3 px-4 rounded-md hover:bg-[#41251A]"
                 style={{ color: colors.text }}
@@ -188,6 +185,28 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Dress Code
+              </Link>
+              <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
+              <Link
+                href="/accommodations"
+                className="transition-colors py-3 px-4 rounded-md hover:bg-[#41251A]"
+                style={{ color: colors.text }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#F1AF47'}
+                onMouseLeave={(e) => e.currentTarget.style.color = colors.text}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Accommodations
+              </Link>
+              <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
+              <Link
+                href="/roadmap"
+                className="transition-colors py-3 px-4 rounded-md hover:bg-white/10"
+                style={{ color: colors.text }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#F1AF47'}
+                onMouseLeave={(e) => e.currentTarget.style.color = colors.text}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Upcoming Updates
               </Link>
               <div className="w-full h-px" style={{ backgroundColor: `${colors.text}30` }} />
               <Link
