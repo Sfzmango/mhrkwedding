@@ -119,7 +119,7 @@ export default function DetailsPage() {
                 <p className="font-art-nouveau-caps text-lg mb-6 text-center">* Deadline - January 1, 2026 *</p>
                 <form className="max-w-2xl mx-auto space-y-6 text-2xl font-art-nouveau-regular" action="https://formsubmit.co/d3f63caa2715a89816af0e1ce74867d0" method="POST">
                   {/* FormSubmit configuration */}
-                  <input type="hidden" name="_next" value="http://kilgorewedding.online/roadmap" />
+                  <input type="hidden" name="_next" value="https://kilgore-wedding.com/roadmap/" />
                   <input type="hidden" name="_subject" value="New Wedding RSVP Submission" />
                   <input type="hidden" name="_replyto" value="" id="_replyto" />
                   <input type="hidden" name="_template" value="table" />
